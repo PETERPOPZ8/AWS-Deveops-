@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>EduFlow</h2>
+
+        <ul>
+
+            <li><i class="fa-solid fa-house"></i> Dashboard</li>
+
+            <li><i class="fa-solid fa-user-graduate"></i> Students</li>
+
+            <li><i class="fa-solid fa-book"></i> Courses</li>
+
+            <li><i class="fa-solid fa-gear"></i> Settings</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="top-bar">
+
+            <h1>Student Management</h1>
+
+            <a href="/add-student" class="add-btn">
+    Add Student
+</a>
+         
+        </div>
+
+        <!-- Table -->
+
+        <table>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Action</th>
+
+            </tr>
+            {% for student in students %}
+<tr>
+    <td>{{ student[0] }}</td>
+    <td>{{ student[1] }}</td>
+    <td>{{ student[2] }}</td>
+    <td>{{ student[3] }}</td>
+
+    <td>
+        <a href="/edit-student/{{ student[0] }}">
+    <button class="edit-btn">Edit</button>
+</a>
+        <a href="/delete-student/{{ student[0] }}">
+    <button class="delete-btn">Delete</button>
+</a>
+    </td>
+</tr>
+{% endfor %}
+
+            
+                <tr>
+    
+</tr>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
